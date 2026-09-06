@@ -1,0 +1,7 @@
+# Date: 2026-09-06
+# Author: Alok
+# File: resume-desk/requirements.txt
+# Purpose: Pinned Python application dependencies.
+# Licence: MIT, see ../LICENSE
+docxtract-sdk==1.0.0
+Flask==3.1.2

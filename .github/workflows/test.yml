@@ -1,0 +1,63 @@
+# Date: 2026-09-06
+# Author: Alok
+# File: .github/workflows/test.yml
+# Purpose: Run offline test suites for all three public example apps.
+name: Tests
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  node:
+    name: Node 20 / Invoice Desk
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: invoice-desk
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+          cache-dependency-path: invoice-desk/package-lock.json
+      - run: npm ci
+      - run: npm test
+
+  python:
+    name: Python 3.12 / Resume Screening Desk
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: resume-desk
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: resume-desk/requirements.txt
+      - run: python -m venv .venv
+      - run: .venv/bin/pip install -r requirements.txt
+      - run: .venv/bin/python -m unittest discover -s tests -v
+
+  php:
+    name: PHP 8.3 / PO vs Invoice Matcher
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: po-invoice-matcher
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: curl, json
+          tools: composer:v2
+          coverage: none
+      - run: composer install --no-interaction --prefer-dist
+      - run: composer test

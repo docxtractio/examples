@@ -1,0 +1,12 @@
+# Date: 2026-09-06
+# Author: Alok
+# File: .gitignore
+# Purpose: Exclude dependencies and local state.
+.DS_Store
+node_modules/
+.venv/
+vendor/
+__pycache__/
+*.pyc
+.env
+*.log

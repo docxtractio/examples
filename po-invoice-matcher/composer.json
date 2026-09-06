@@ -1,0 +1,24 @@
+{
+  "_comment": [
+    "Date: 2026-09-06",
+    "Author: Alok",
+    "File: po-invoice-matcher/composer.json",
+    "Purpose: PHP app manifest"
+  ],
+  "name": "docxtract/example-po-invoice-matcher",
+  "description": "PO vs invoice matching example built on the DocXtract PHP SDK",
+  "type": "project",
+  "require": {
+    "php": ">=8.1",
+    "ext-curl": "*",
+    "docxtract/php-sdk": "1.0.0"
+  },
+  "scripts": {
+    "start": [
+      "Composer\\Config::disableProcessTimeout",
+      "php -d post_max_size=16M -d upload_max_filesize=10M -S 127.0.0.1:3103 -t public router.php"
+    ],
+    "test": "php tests/matching_test.php"
+  },
+  "license": "MIT"
+}
