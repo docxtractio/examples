@@ -1,4 +1,5 @@
 # Date: 2026-09-06
+# Update: 2026-09-07
 # Author: Alok
 # File: .gitignore
 # Purpose: Exclude dependencies and local state.
@@ -11,3 +12,13 @@ __pycache__/
 .env
 *.log
 /screenshots/
+
+# folder-watcher local state
+folder-watcher/config.ini
+folder-watcher/invoices/
+folder-watcher/done/
+folder-watcher/failed/
+folder-watcher/output/
+folder-watcher/build/
+folder-watcher/dist/
+*.spec
