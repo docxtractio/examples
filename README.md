@@ -1,22 +1,24 @@
 <!--
 Date: 2026-09-06
+Update: 2026-09-07
 Author: Alok
 File: README.md
 Purpose: Setup, workflow and implementation guide.
 -->
 # DocXtract example applications
 
-Three independent local applications demonstrating the public DocXtract SDKs. Each folder can be copied and run independently.
+Three independent local applications demonstrating the public DocXtract SDKs, plus a single-file folder watcher that calls the API directly. Each folder can be copied and run independently.
 
 | Application | Backend | Open locally | Guide |
 | --- | --- | --- | --- |
 | Invoice Desk | Node.js | http://127.0.0.1:3101 | [Invoice guide](invoice-desk/README.md) |
 | Resume Screening Desk | Python / Flask | http://127.0.0.1:3102 | [Resume guide](resume-desk/README.md) |
 | PO vs Invoice Matcher | PHP | http://127.0.0.1:3103 | [Matcher guide](po-invoice-matcher/README.md) |
+| Folder Watcher | PowerShell or Python script, no server | n/a (command line, writes Excel) | [Folder Watcher guide](folder-watcher/README.md) |
 
 ## Documentation
 
-[Example applications overview](https://docs.docxtract.io/examples/overview) · [Invoice Desk](https://docs.docxtract.io/examples/invoice-desk-node) · [Resume Screening Desk](https://docs.docxtract.io/examples/resume-screening-python) · [PO vs Invoice Matcher](https://docs.docxtract.io/examples/po-invoice-matcher-php)
+[Example applications overview](https://docs.docxtract.io/examples/overview) · [Invoice Desk](https://docs.docxtract.io/examples/invoice-desk-node) · [Resume Screening Desk](https://docs.docxtract.io/examples/resume-screening-python) · [PO vs Invoice Matcher](https://docs.docxtract.io/examples/po-invoice-matcher-php) · [Folder Watcher](https://docs.docxtract.io/connectors/folder-watcher)
 
 ## Launch
 
@@ -36,6 +38,8 @@ cd resume-desk
 cd po-invoice-matcher
 ./start.sh
 ```
+
+Folder Watcher has no server: copy `folder-watcher/` anywhere, drop files in `invoices/`, and run `.\folder-watcher.ps1` or `python folder_watcher.py`. See its README.
 
 The launch guide opens automatically. Choose **Explore sample data** for a complete offline demonstration, or **Set up my profile** to connect a DocXtract key. Reopen the guide at any time from the header. Stop a server with Ctrl+C.
 
